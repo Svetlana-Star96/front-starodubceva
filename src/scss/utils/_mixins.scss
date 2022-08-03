@@ -1,0 +1,34 @@
+@mixin arrow-after($width, $height) {
+  content: '';
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background: url(../images/arrow.svg) no-repeat center;
+  background-size: contain;
+}
+
+@mixin column($columns, $columns-gap) {
+  width: calc((100% - $columns-gap * ($columns - 1)) / $columns);
+  margin-right: $columns-gap;
+  &:nth-child(#{$columns}n+#{$columns}) {
+    margin-right: 0;
+  }
+}
+
+@mixin media-laptop {
+  @media (screen and min-width: $mediaWidthLaptop) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (screen and max-width: $mediaWidthTablet) {
+    @content;
+  }
+}
+
+@mixin media-phone {
+  @media (screen and max-width: $mediaWidthPhone) {
+    @content;
+  }
+}
